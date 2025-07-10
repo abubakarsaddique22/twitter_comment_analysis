@@ -8,7 +8,7 @@ import os
 
 
 # load data 
-with open('model.pkl','rb') as f:
+with open('models/model.pkl','rb') as f:
     clf=pickle.load(f)
 test_data=pd.read_csv('data/interim/test_transform.csv')
 
@@ -32,11 +32,9 @@ metric_dict={
     'auc':auc
 }
 
-# Define path using cookiecutter structure
-data_path = os.path.join('reports')
-os.makedirs(data_path, exist_ok=True)  # prevent error if folder exists
 
-# Save the model to models/model.pkl
-model_path = os.path.join(data_path, 'metrics.json')
-with open(model_path, 'w') as f:
+
+metrics_path = os.path.join('reports', 'metrics.json')
+os.makedirs(os.path.dirname(metrics_path), exist_ok=True) 
+with open(metrics_path, 'w') as f:
     json.dump(metric_dict,f,indent=4)

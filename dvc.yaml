@@ -32,12 +32,12 @@ stages:
      - train_model.n_estimators
      - train_model.learning_rate
     outs:
-    - model.pkl
+    - models/model.pkl
 
   predit_model:
     cmd: python src/model/predict_model.py
     deps:
-    - model.pkl
+    - models/model.pkl
     - src/model/predict_model.py
     outs:
-    - metrics.json
+    - reports/metrics.json

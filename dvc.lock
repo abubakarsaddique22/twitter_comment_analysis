@@ -65,30 +65,30 @@ stages:
       nfiles: 2
     - path: src/model/train_model.py
       hash: md5
-      md5: 8646e55a6d55d4cf294af135bf12f58d
-      size: 758
+      md5: cd8f2c82e45d9b7f4954b6242929d4c7
+      size: 642
     params:
       params.yaml:
         train_model.learning_rate: 0.1
         train_model.n_estimators: 100
     outs:
-    - path: model.pkl
+    - path: models/model.pkl
       hash: md5
-      md5: 8ce13ad6a0adbd69c780bae05e644e4f
-      size: 131076
+      md5: a8197c7c750c265b14a5604b0d034705
+      size: 131077
   predit_model:
     cmd: python src/model/predict_model.py
     deps:
-    - path: model.pkl
+    - path: models/model.pkl
       hash: md5
-      md5: 8ce13ad6a0adbd69c780bae05e644e4f
-      size: 131076
+      md5: a8197c7c750c265b14a5604b0d034705
+      size: 131077
     - path: src/model/predict_model.py
       hash: md5
-      md5: e82c8b0672e78feba5099a596e96795c
-      size: 842
+      md5: 36d90aee06524443f6471a8215f64f22
+      size: 980
     outs:
-    - path: metrics.json
+    - path: reports/metrics.json
       hash: md5
-      md5: 4927d9b76f0dcb1a89277b59073fd1f8
-      size: 145
+      md5: 50c35836ced503e9a66e9dd97be4b21a
+      size: 144

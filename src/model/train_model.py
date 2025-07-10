@@ -18,11 +18,7 @@ clf = GradientBoostingClassifier(n_estimators=params['n_estimators'],learning_ra
 clf.fit(X_train, y_train)
 
 
-# Define path using cookiecutter structure
-data_path = os.path.join('models')
-os.makedirs(data_path, exist_ok=True)  # prevent error if folder exists
-
-# Save the model to models/model.pkl
-model_path = os.path.join(data_path, 'model.pkl')
+model_path = os.path.join('models', 'model.pkl')
+os.makedirs('models', exist_ok=True)
 with open(model_path, 'wb') as f:
     pickle.dump(clf, f)
