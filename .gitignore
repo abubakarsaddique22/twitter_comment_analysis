@@ -10,7 +10,6 @@ models/
 reports/
 
 
-
 # Distribution / packaging
 .Python
 env/
